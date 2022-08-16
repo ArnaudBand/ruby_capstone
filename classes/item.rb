@@ -7,4 +7,12 @@ class Item
     @archive = false
     @id = id
   end
+
+  def move_to_archive
+    @archive = true if can_be_archive?
+  end
+
+  def can_be_archive?
+    @publish_date < Date.today.year - 10
+  end
 end
