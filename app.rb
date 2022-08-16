@@ -31,7 +31,7 @@ class App
     if @labels.empty?
       puts 'There are no labels.'
     else
-      @labels.each { |label| puts "ID: #{label.id} - Title: \"#{label.title}\" - Color: #{label.color} " }
+      @labels.each { |label| puts "ID: #{label.id} - Title: #{label.title} - Color: #{label.color} " }
     end
     puts menu_option
   end
