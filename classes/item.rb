@@ -1,9 +1,9 @@
 class Item
-  attr_accessor :published_date, :archive
+  attr_accessor :publish_date, :archive
   attr_reader :id
 
-  def initialize(_published_date, id = Random.rand(1..1000))
-    @published_date = published_date
+  def initialize(_publish_date, id = Random.rand(1..1000))
+    @publish_date = publish_date
     @archive = false
     @id = id
   end
