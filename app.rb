@@ -26,4 +26,13 @@ class App
     end
     puts menu_option
   end
+
+  def list_all_labels
+    if @labels.empty?
+      puts 'There are no labels.'
+    else
+      @labels.each { |label| puts "ID: #{label.id} - Title: \"#{label.title}\" - Color: #{label.color} " }
+    end
+    puts menu_option
+  end
 end
