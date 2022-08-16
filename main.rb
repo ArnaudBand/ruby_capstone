@@ -19,4 +19,17 @@ class Main
       end
     end
   end
+
+  def main
+    puts 'Welcome to my app'
+    puts '💥💥💥💥💥💥💥'
+    puts @app.menu_option
+    puts '***********'
+    menu
+    puts 'Thank you for using my app'
+    puts '🖐🖐🖐🖐🖐🖐🖐🖐🖐🖐🖐'
+  end
 end
+
+main = Main.new
+main.main
