@@ -15,4 +15,15 @@ class App
     4. Exit
     Please choose an option:'
   end
+
+  def list_all_books
+    if @books.empty?
+      puts 'There are no books.'
+    else
+      @books.each do |book|
+        puts "ID: #{book.id} - Publisher: \"#{book.publisher}\" - Cover State: #{book.cover_state} "
+      end
+    end
+    puts menu_option
+  end
 end
