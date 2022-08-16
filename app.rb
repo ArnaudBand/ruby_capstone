@@ -35,4 +35,17 @@ class App
     end
     puts menu_option
   end
+
+  def add_book
+    puts 'Please enter the book information'
+    print 'Publish Date (YYYY-MM-DD): '
+    publish_date = gets.chomp
+    print 'Publisher '
+    publisher = gets.chomp
+    print 'Cover state (good/bad): '
+    cover_state = gets.chomp.downcase
+    @books << Book.new(publish_date, publisher, cover_state)
+    puts "Book added successfully.\n"
+    puts menu_option
+  end
 end
