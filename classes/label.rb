@@ -13,4 +13,11 @@ class Label
     @items << item unless @items.include?(item)
     item.label = self unless item.class != string
   end
+
+  def to_json(*args)
+    {
+      JSON.create_id => self.class.name,
+      'data' => [color, title]
+    }.to_json(*args)
+  end
 end
