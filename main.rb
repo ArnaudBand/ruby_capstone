@@ -14,7 +14,9 @@ class Main
       when 1 then @app.list_all_books
       when 2 then @app.list_all_labels
       when 3 then @app.add_book
-      when 4 then exit
+      when 4
+        @app.save_data
+        exit
       else puts 'Invalid option'
       end
     end
