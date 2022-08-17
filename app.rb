@@ -24,10 +24,9 @@ class App
       puts 'There are no books.'
     else
       @books.each do |book|
-        puts "ID: #{book.id} - Publisher: \"#{book.publisher}\" - Cover State: #{book.cover_state} "
+        puts "ID: #{book.id} - Publisher: \"#{book.publisher}\" - Cover State: #{book.cover_state} - published_date: #{book.publish_date}"
       end
     end
-    puts menu_option
   end
 
   def list_all_labels
@@ -36,20 +35,36 @@ class App
     else
       @labels.each { |label| puts "ID: #{label.id} - Title: #{label.title} - Color: #{label.color} " }
     end
-    puts menu_option
+  end
+
+  def ask_publish_date
+    print 'Publish Date (YYYY-MM-DD): '
+    gets.chomp
+  end
+
+  def ask_publisher
+    print 'Publisher '
+    gets.chomp
+  end
+
+  def ask_cover_state
+    print 'Cover state (good/bad): '
+    gets.chomp
+  end
+
+  def ask_book_info
+    puts 'Please enter the book information'
+    [
+      ask_publish_date,
+      ask_publisher,
+      ask_cover_state
+    ]
   end
 
   def add_book
-    puts 'Please enter the book information'
-    print 'Publish Date (YYYY-MM-DD): '
-    publish_date = gets.chomp
-    print 'Publisher '
-    publisher = gets.chomp
-    print 'Cover state (good/bad): '
-    cover_state = gets.chomp.downcase
+    publish_date, publisher, cover_state = ask_book_info
     @books << Book.new(publish_date, publisher, cover_state)
-    puts "Book added successfully.\n"
-    puts menu_option
+    puts 'Book added successfully.'
   end
 
   def save_data
