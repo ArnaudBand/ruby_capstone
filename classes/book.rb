@@ -18,6 +18,10 @@ class Book < Item
     }.to_json(*args)
   end
 
+  def self.json_create(object)
+    new(*object['data'])
+  end
+
   private
 
   def can_be_archived?
