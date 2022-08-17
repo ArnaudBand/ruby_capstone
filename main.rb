@@ -9,6 +9,8 @@ class Main
 
   def menu
     loop do
+      puts @app.menu_option
+      puts '***********'
       option = gets.chomp.to_i
       case option
       when 1 then @app.list_all_books
@@ -25,8 +27,6 @@ class Main
   def main
     puts 'Welcome to my app'
     puts '💥💥💥💥💥💥💥'
-    puts @app.menu_option
-    puts '***********'
     menu
     puts 'Thank you for using my app'
     puts '🖐🖐🖐🖐🖐🖐🖐🖐🖐🖐🖐'
