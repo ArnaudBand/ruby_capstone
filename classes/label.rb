@@ -20,4 +20,8 @@ class Label
       'data' => [color, title]
     }.to_json(*args)
   end
+
+  def self.json_create(object)
+    new(*object['data'])
+  end
 end
