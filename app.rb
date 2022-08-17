@@ -1,3 +1,6 @@
+require 'pry'
+require 'json'
+
 require './classes/book'
 require './classes/label'
 
