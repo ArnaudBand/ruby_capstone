@@ -6,8 +6,8 @@ require './classes/label'
 
 class App
   def initialize
-    @books = []
-    @labels = []
+    @books = File.exist?('store/books.json') ? JSON.parse(File.read('store/books.json'), create_additions: true) : []
+    @labels = File.exist?('store/labels.json') ? JSON.parse(File.read('store/labels.json'), create_additions: true) : []
   end
 
   def menu_option
@@ -50,5 +50,10 @@ class App
     @books << Book.new(publish_date, publisher, cover_state)
     puts "Book added successfully.\n"
     puts menu_option
+  end
+
+  def save_data
+    File.write('store/books.json', JSON.generate(@books))
+    File.write('store/labels.json', JSON.generate(@labels))
   end
 end
