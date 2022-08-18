@@ -12,7 +12,6 @@
 ## Built With
 
 - **Ruby**
-- Vs code
 - Rubocop
 - Gemfile
 - PRY
