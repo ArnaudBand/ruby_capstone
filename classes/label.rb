@@ -11,7 +11,7 @@ class Label
 
   def add_item(item)
     @items << item unless @items.include?(item)
-    item.label = self unless item.class != string
+    item.label = self unless item.class != String
   end
 
   def to_json(*args)
