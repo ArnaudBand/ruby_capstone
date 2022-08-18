@@ -1,4 +1,5 @@
 require 'date'
+require 'json'
 require_relative './item'
 
 class Book < Item
@@ -24,6 +25,6 @@ class Book < Item
   private
 
   def can_be_archived?
-    @publish_date.to_date.year < Date.today.year - 10 || @cover_state == 'bad'
+    super || @cover_state == 'bad'
   end
 end
