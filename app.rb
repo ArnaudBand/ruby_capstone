@@ -1,5 +1,6 @@
 require 'pry'
 require 'json'
+require 'Date'
 
 require './classes/book'
 require './classes/label'
@@ -37,19 +38,39 @@ class App
     end
   end
 
+  def string_input(prompt)
+    print prompt
+    gets.chomp.strip
+  end
+
+  def date_input(prompt)
+    loop do
+      input = string_input(prompt)
+      date = Date.parse(input)
+    rescue Date::Error
+      puts 'Invalid date'
+    else
+      return date
+    end
+  end
+
+  def letter_input(prompt, valid_options)
+    loop do
+      input = string_input(prompt).upcase
+      return input if valid_options.include?(input)
+    end
+  end
+
   def ask_publish_date
-    print 'Publish Date (YYYY-MM-DD): '
-    gets.chomp
+    date_input('Publish Date (YYYY-MM-DD): ')
   end
 
   def ask_publisher
-    print 'Publisher '
-    gets.chomp
+    string_input('Publisher: ')
   end
 
   def ask_cover_state
-    print 'Cover state (good/bad): '
-    gets.chomp
+    letter_input('Cover_state (good/bad): ', %w[GOOD BAD]).downcase
   end
 
   def ask_book_info
