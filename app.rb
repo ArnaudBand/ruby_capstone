@@ -55,7 +55,8 @@ class App
 
   def choice_good_or_bad(prompt, valid_options)
     loop do
-      return use_string(prompt).upcase if valid_options.include?(use_string(prompt).upcase)
+      input = use_string(prompt).upcase
+      return input if valid_options.include?(input)
     end
   end
 
