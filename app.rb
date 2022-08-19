@@ -38,15 +38,14 @@ class App
     end
   end
 
-  def string_input(prompt)
+  def use_string(prompt)
     print prompt
     gets.chomp.strip
   end
 
-  def date_input(prompt)
+  def use_date(prompt)
     loop do
-      input = string_input(prompt)
-      date = Date.parse(input)
+      date = Date.parse(use_string(prompt))
     rescue Date::Error
       puts 'Invalid date'
     else
@@ -54,23 +53,22 @@ class App
     end
   end
 
-  def letter_input(prompt, valid_options)
+  def choice_good_or_bad(prompt, valid_options)
     loop do
-      input = string_input(prompt).upcase
-      return input if valid_options.include?(input)
+      return use_string(prompt).upcase if valid_options.include?(use_string(prompt).upcase)
     end
   end
 
   def ask_publish_date
-    date_input('Publish Date (YYYY-MM-DD): ')
+    use_date('Publish Date (YYYY-MM-DD): ')
   end
 
   def ask_publisher
-    string_input('Publisher: ')
+    use_string('Publisher: ')
   end
 
   def ask_cover_state
-    letter_input('Cover_state (good/bad): ', %w[GOOD BAD]).downcase
+    choice_good_or_bad('Cover_state (good/bad): ', %w[GOOD BAD]).downcase
   end
 
   def ask_book_info
