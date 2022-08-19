@@ -8,6 +8,10 @@
 
 ![](https://github.com/microverseinc/curriculum-ruby/raw/main/group-capstone/images/catalog_of_my_things.png)
 
+## Video link
+
+[video](https://www.loom.com/share/7d7e241f22d84e8d9ad1a3ec74f7c616)
+
 
 ## Built With
 
