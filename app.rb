@@ -1,12 +1,14 @@
-require 'pry'
+require 'date'
+require 'fileutils'
 require 'json'
-require 'Date'
+require 'pry'
 
 require './classes/book'
 require './classes/label'
 
 class App
   def initialize
+    FileUtils.mkdir_p('store')
     @books = File.exist?('store/books.json') ? JSON.parse(File.read('store/books.json'), create_additions: true) : []
     @labels = File.exist?('store/labels.json') ? JSON.parse(File.read('store/labels.json'), create_additions: true) : []
   end
